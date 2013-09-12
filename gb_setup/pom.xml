@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+						http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>com.sap.ase.guestbook</groupId>
+		<artifactId>gb_parent</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+		<relativePath>../gb_parent/pom.xml</relativePath>
+	</parent>
+
+	<artifactId>gb_setup</artifactId>
+	<packaging>pom</packaging>
+	<name>Guestbook Setup Module</name>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-install-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>install_commons</id>
+						<phase>initialize</phase>
+						<goals>
+							<goal>install-file</goal>
+						</goals>
+						<configuration>
+							<file>${eclipse.path}/plugins/com.sap.ui5.commons_${sap.cloud.ui5.version}.jar</file>
+							<groupId>com.sap.ui5</groupId>
+							<artifactId>commons</artifactId>
+							<version>${sap.cloud.ui5.version}</version>
+							<scope>system</scope>
+							<packaging>jar</packaging>
+						</configuration>
+					</execution>
+					<execution>
+						<id>install_resource</id>
+						<phase>initialize</phase>
+						<goals>
+							<goal>install-file</goal>
+						</goals>
+						<configuration>
+							<file>${eclipse.path}/plugins/com.sap.ui5.resource_${sap.cloud.ui5.version}.jar</file>
+							<groupId>com.sap.ui5</groupId>
+							<artifactId>resource</artifactId>
+							<version>${sap.cloud.ui5.version}</version>
+							<scope>system</scope>
+							<packaging>jar</packaging>
+						</configuration>
+					</execution>
+					<execution>
+						<id>install_core</id>
+						<phase>initialize</phase>
+						<goals>
+							<goal>install-file</goal>
+						</goals>
+						<configuration>
+							<file>${eclipse.path}/plugins/com.sap.ui5.core_${sap.cloud.ui5.version}.jar</file>
+							<groupId>com.sap.ui5</groupId>
+							<artifactId>core</artifactId>
+							<version>${sap.cloud.ui5.version}</version>
+							<scope>system</scope>
+							<packaging>jar</packaging>
+						</configuration>
+					</execution>
+					<execution>
+						<id>install_themelib_sap_ux</id>
+						<phase>initialize</phase>
+						<goals>
+							<goal>install-file</goal>
+						</goals>
+						<configuration>
+							<file>${eclipse.path}/plugins/com.sap.ui5.themelib_sap_ux_${sap.cloud.ui5.version}.jar</file>
+							<groupId>com.sap.ui5</groupId>
+							<artifactId>themelib_sap_ux</artifactId>
+							<version>${sap.cloud.ui5.version}</version>
+							<scope>system</scope>
+							<packaging>jar</packaging>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
