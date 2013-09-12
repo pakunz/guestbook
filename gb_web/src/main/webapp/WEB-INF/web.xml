@@ -11,4 +11,22 @@
 		<welcome-file>index.html</welcome-file>
 	</welcome-file-list>
 
+	<servlet>
+		<servlet-name>CXFNonSpringJaxrsServlet</servlet-name>
+		<servlet-class>org.apache.cxf.jaxrs.servlet.CXFNonSpringJaxrsServlet</servlet-class>
+		<init-param>
+			<param-name>jaxrs.serviceClasses</param-name>
+			<param-value>guestbook.RestService</param-value>
+		</init-param>
+		<init-param>
+			<param-name>jaxrs.providers</param-name>
+			<param-value>guestbook.EntryDAOProvider(defaultClass=guestbook.EntryInMemoryDAO)</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CXFNonSpringJaxrsServlet</servlet-name>
+		<url-pattern>/backend/*</url-pattern>
+	</servlet-mapping>
+
 </web-app>
